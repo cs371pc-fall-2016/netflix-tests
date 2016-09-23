@@ -7,14 +7,14 @@
 
 using namespace std;
 
-const string user = "320159:4.04\n910198:3.36\n654681:5.0\n546449:3.13\n654861:4.61\n951729:3.78\n2643288:3.6\n138561:3.49\n2007667:4.03\n1174466:3.16\n";
+const string user = "320159 4.04\n910198 3.36\n654681 5.0\n546449 3.13\n654861 4.61\n951729 3.78\n2643288 3.6\n138561 3.49\n2007667 4.03\n1174466 3.16\n";
 const string movie = "1:3.75\n6008:3.1\n12626:3.45\n6138:4.19\n152:3.93\n";
 
 istringstream userCache(user);
 istringstream movieCache(movie);
 
 TEST(Netflix, print_1) {
-	string pathOut = "TestNetflix.out";
+	string pathOut = "TestNetflix.tmp";
 	initMap(userCache, movieCache);
 	istringstream r("1:\n320159\n910198\n");
 	ofstream outfile;
@@ -38,7 +38,7 @@ TEST(Netflix, print_1) {
 }
 
 TEST(Netflix, print_2) {
-	string pathOut = "TestNetflix.out";
+	string pathOut = "TestNetflix.tmp";
 	initMap(userCache, movieCache);
 	istringstream r("6008:\n654681\n546449\n12626:\n654861\n951729\n");
 	ofstream outfile;
@@ -62,7 +62,7 @@ TEST(Netflix, print_2) {
 }
 
 TEST(Netflix, print_3) {
-	string pathOut = "TestNetflix.out";
+	string pathOut = "TestNetflix.tmp";
 	initMap(userCache, movieCache);
 	istringstream r("6138:\n2643288\n138561\nNot_a_real_ID\n2007667");
 	ofstream outfile;
